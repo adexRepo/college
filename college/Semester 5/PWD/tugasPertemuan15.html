@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interaktif</title>
+</head>
+<body>
+    <script>
+        const hitung = (pId) => {
+            if(pId == "determinan"){
+                let validation = /^[0-9]+$/; // saya pakai regex untuk validasi inputan
+                if(!validation.test(a.value) && !validation.test(b.value) && !validation.test(c.value)){
+                    alert("Harap isi semua form dibawah dengan benar");
+                }else{
+                    let determinan = b.value*b.value - 4*a.value*c.value;
+                    if(determinan < 0){
+                        result.value = "Result : Determinan negatif - Dibawah Garis Kurva";
+                        //alert("Result : Determinan negatif - Dibawah Garis Kurva");
+                    }else if(determinan == 0){
+                        result.value = "Result : Determinan nol - Garis lurus";
+                        //alert("Result : Determinan nol - Garis lurus");
+                    }else{
+                        result.value = "Result : Determinan positif - Di Garis Kurva";
+                        //alert("Result : Determinan positif - Di Garis Kurva");
+                    }
+                }
+            }else{
+                let validation = /^[0-9]+$/; // saya pakai regex untuk validasi inputan
+                if(!validation.test(harga.value) && !validation.test(jBeli.value)){
+                    alert("Harap isi semua form dibawah dengan benar");
+                }else{
+                    getValue();
+                    let result = jBeli.value * harga.value;
+                    result = jBeli.value < 10 ? result+5000 : result * 0.5;
+                    result = `Rp. ${result}`;
+                    total.value = result;
+                    //alert(result);
+                }
+            }
+        }
+
+        const getValue = () =>{
+            let value = document.getElementsByName('semen')
+                let jenis = null;
+                for(i = 0; i < value.length; i++) {
+                    if(value[i].checked)
+                    {
+                        jenis = value[i].value;
+                    }
+                }
+                if(jenis == "Tiga Roda"){
+                    harga.value = 40000;
+                    harga.readOnly = true;
+                }else if(jenis == "Gersik"){
+                    harga.value = 60000;
+                    harga.readOnly = true;
+                }else if(jenis == "Holcim"){
+                    harga.value = 50000;
+                    harga.readOnly = true;
+                }else if(jenis=="other"){
+                    harga.readOnly = false;
+                }
+        }
+
+    </script>
+    <div>
+        <h1>Form 1 Determinan</h1>
+        <div>
+            <form >
+                <label for="a">Masukkan Nilai B: </label>
+                <input type="text" name="b" id="b"><br><br>
+                <label for="b">Masukkan Nilai A: </label>
+                <input type="text" name="a" id="a"><br><br>
+                <label for="c">Masukkan Nilai C: </label>
+                <input type="text" name="c" id="c"><br><br>
+                <input id="determinan" type="submit" value="Submit" onclick="hitung(this.id)">
+                <label >Result   : </label>
+                <input type="text" readonly id ="result">
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr/>
+    <div>
+        <h1>Form 2 Semen</h1>
+        <div>
+            <form>
+                <div>
+                    <p>Masukkan Merek Semen: </p>
+                    <input type="radio" id="tigaRoda" name="semen" value="Tiga Roda"  onchange="getValue()">
+                    <label for="tigaRoda">Tiga Roda</label>
+                    <input type="radio" id="css" name="semen" value="Gersik" onchange="getValue()">
+                    <label for="gersik">Gersik</label>
+                    <input type="radio" id="holcim" name="semen" value="Holcim" onchange="getValue()">
+                    <label for="holcim">Holcim</label>
+                    <input type="radio" id="other" name="semen" onchange="getValue()">
+                    <input type="text" id="inpOther" placeholder="Other" >
+                </div><br>
+                <label for="b">Harga Semen per sak : </label>
+                <input type="text" name="a" id="harga" placeholder="0"><br><br>
+                <label for="c">Jumlah pembelian sak: </label>
+                <input type="text" name="c" id="jBeli" placeholder="0"><br><br>
+                <input id="semen" type="submit" value="Submit" onclick="hitung(this.id)">
+                <label >Result   : </label>
+                <input type="text" readonly id ="total">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
