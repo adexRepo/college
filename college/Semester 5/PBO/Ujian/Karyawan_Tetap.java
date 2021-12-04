@@ -2,17 +2,35 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Karyawan_Tetap {
+public class Karyawan_Tetap 
+{
     protected String nama = "";
-    protected int nik = 0;
+    protected int nik = 0 ;
 
-    public void tampilData(String nama, int nik) {
+    void setNama(String nama) {
         this.nama = nama;
-        this.nik = nik;
-        golongan();
     }
 
-    void golongan() {
+    void setNik(int nik) {
+        this.nik = nik;
+    }
+
+    String getNama() {
+        return nama;
+    }
+
+    int getNik() {
+        return nik;
+    }
+
+    void show(String nama, int nik) {
+        this.nama = nama;
+        this.nik = nik;
+        calc();
+    }
+
+    Object[] golongan()
+    {
         Scanner input3 = new Scanner(System.in);
         System.out.println("==========================================");
         System.out.println("Pilih Golongan Pinjaman");
@@ -25,11 +43,17 @@ public class Karyawan_Tetap {
         System.out.print("Berapa Lama Pinjaman (bulan) : ");
         int lama = input3.nextInt();
         System.out.println("");
-        calculateKaryawanTetep(pilih, lama, this.nama,this.nik);
         input3.close();
+        return new Object[] {getNama(), getNik(),pilih,lama};
     }
 
-    private void calculateKaryawanTetep(int pilih,int lama, String nama,int nik) {
+    private void calc()
+    {
+        Object[] data = golongan();
+        String nama = (String) data[0];
+        int nik = (int) data[1];
+        int pilih = (int) data[2];
+        int lama = (int) data[3];
         int golA = 100000000;
         int golB = 75000000;
         int golC = 50000000;
@@ -65,6 +89,7 @@ public class Karyawan_Tetap {
         NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
         String totalPinjamanFix = nf.format(totalPinjaman);
         String kewajibanBulananFix = nf.format(kewajibanBulanan);
+        System.out.println("");
 
         System.out.println("------------------------------------------");
         System.out.println("-------- Total Kewajiban Pinjaman ---------");
@@ -78,4 +103,5 @@ public class Karyawan_Tetap {
         System.out.println("Kesejahteraan Karyawan dalam urusan Keuangan... Kami Solusinya (*_-)");
         System.out.println("_____________________________________________________________________");
     }
+
 }
