@@ -46,22 +46,4 @@ public class Transaksi {
         System.out.println("Keterangan          :       " + keterangan);
         return totalBiayaFix;
     };
-
-    //getter
-    public int getBiaya_Jasa() {
-        return biaya_Jasa;
-    }
-
-    public int getBiaya_Alat() {
-        return biaya_Alat;
-    }
-
-    public int getBiaya_Bahan() {
-        return biaya_Bahan;
-    }
-
-    public int getBiaya_Transpotasi() {
-        return biaya_Transpotasi;
-    }
-
 }
