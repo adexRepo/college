@@ -1,27 +1,9 @@
+package No1;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Karyawan_Tetap 
-{
-    protected String nama = "";
-    protected int nik = 0 ;
-
-    void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    void setNik(int nik) {
-        this.nik = nik;
-    }
-
-    String getNama() {
-        return nama;
-    }
-
-    int getNik() {
-        return nik;
-    }
+public class Karyawan_Honorer extends Karyawan_Tetap {
 
     void show(String nama, int nik) {
         this.nama = nama;
@@ -29,8 +11,8 @@ public class Karyawan_Tetap
         calc();
     }
 
-    Object[] golongan()
-    {
+    @Override
+    Object[] golongan() {
         Scanner input3 = new Scanner(System.in);
         System.out.println("==========================================");
         System.out.println("Pilih Golongan Pinjaman");
@@ -47,16 +29,15 @@ public class Karyawan_Tetap
         return new Object[] {getNama(), getNik(),pilih,lama};
     }
 
-    private void calc()
-    {
+    private void calc() {
         Object[] data = golongan();
         String nama = (String) data[0];
         int nik = (int) data[1];
         int pilih = (int) data[2];
         int lama = (int) data[3];
-        int golA = 100000000;
-        int golB = 75000000;
-        int golC = 50000000;
+        int golA = 30000000;
+        int golB = 20000000;
+        int golC = 10000000;
         int bunga = 0;
         long totalPinjaman = 0;
         switch (pilih) {
@@ -85,6 +66,7 @@ public class Karyawan_Tetap
                 System.out.println("Pilihan Anda Salah");
         }
         
+        //for formatting duit indonesia
         int kewajibanBulanan = (int) (totalPinjaman / lama);
         NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
         String totalPinjamanFix = nf.format(totalPinjaman);
@@ -103,5 +85,5 @@ public class Karyawan_Tetap
         System.out.println("Kesejahteraan Karyawan dalam urusan Keuangan... Kami Solusinya (*_-)");
         System.out.println("_____________________________________________________________________");
     }
-
 }
+

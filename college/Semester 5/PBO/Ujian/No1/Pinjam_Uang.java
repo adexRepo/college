@@ -1,3 +1,4 @@
+package No1;
 import java.util.Scanner;
 
 public class Pinjam_Uang {
@@ -28,7 +29,6 @@ public class Pinjam_Uang {
         input.close();
     }
 
-    //Sengaja saya buat 2 method kalo salah input di status karyawan bisa balik lagi
     static void aksesClass(int pilihan)
     {
         Karyawan_Tetap kTetap = new Karyawan_Tetap();
