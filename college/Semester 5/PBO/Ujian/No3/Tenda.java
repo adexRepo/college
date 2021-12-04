@@ -59,7 +59,7 @@ public class Tenda extends Sewa_Tenda {
     @Override
     void dekor() {
         // TODO Auto-generated method stub
-        System.out.println("List Ukuran Tenda");
+        System.out.println("List Dekorasi Tenda");
         System.out.println("1. Bronze           ||   Rp. 2.000.000");
         System.out.println("2. Silver           ||   Rp. 3.000.000");
         System.out.println("3. Gold             ||   Rp. 4.000.000");
