@@ -10,7 +10,8 @@ public class Pinjam_Uang {
      * Deskripsi: Program Koperasi PT. Sejahtera Abadi Jaya
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         var input = new Scanner(System.in);
         System.out.println("=========================================");
         System.out.println("--- Koperasi PT. Sejahtera Abadi Jaya ---");
@@ -27,9 +28,19 @@ public class Pinjam_Uang {
         input.close();
     }
 
-    static void aksesClass(int pilihan) {
-        Karyawan_Tetap tetap = new Karyawan_Tetap();
-        if(pilihan > 2 || pilihan < 1){Pinjam_Uang.main(null); return;}
+    //Sengaja saya buat 2 method kalo salah input di status karyawan bisa balik lagi
+    static void aksesClass(int pilihan)
+    {
+        Karyawan_Tetap kTetap = new Karyawan_Tetap();
+        Karyawan_Honorer kHonorer  = new Karyawan_Honorer();
+        if(pilihan > 2 || pilihan < 1)
+        {
+            System.out.println("Pilihan tidak ada, Ulangi Lagi");
+            System.out.println("");
+            System.out.println("");
+            Pinjam_Uang.main(null);
+            return;
+        }
         var input2 = new Scanner(System.in);
         System.out.println("");
         System.out.println("Silahkan Masukkan Data Anda :");
@@ -39,7 +50,10 @@ public class Pinjam_Uang {
         System.out.println("Masukkan NIK Peminjam : ");
         int nik = Integer.parseInt(input2.next());
         System.out.println("");
-        tetap.tampilData(nama,nik);
+        switch (pilihan) {
+            case 1 -> kTetap.show(nama,nik);
+            case 2 -> kHonorer.show(nama,nik);
+        }
         input2.close();
     }
 }
