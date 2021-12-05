@@ -1,0 +1,9 @@
+table{
+    width: 50%;
+}
+pre{
+    color: aliceblue;
+    background-color: grey;
+    font-size: 35px;
+    font-family: monospace;
+}

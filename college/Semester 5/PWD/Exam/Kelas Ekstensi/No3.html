@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No 3</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script>
+        function click(pId) {
+            if(pId == "btnOk"){
+                let pesan = "";
+                for (let i = 0; i < 10; i++) {
+                    if(i%15 == 0){
+                        pesan +=`<span class="badge badge-primary">Adek Kristiyanto</span>`;
+                    }else if(i%5 == 0){
+                        pesan +=`<span class="badge badge-success">201943501163</span>`;
+                    }else if(i%3 == 0){
+                        pesan +=`<span class="badge badge-danger">X5E</span>`;
+                    }else{
+                        pesan +=`<span class="badge badge-warning">Pemrograman Web Dasar</span>`;
+                    }
+                    hasil.innerHTML = pesan;
+                }
+            }else{
+                hasil.innerHTML = "";
+                alert("Klik Ok untuk menampilkan hasil");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div align="center" class="container" style="border-radius: 10px;border: 1px solid rgba(89, 119, 255, 0.8); margin-top: 2rem;">
+        <div class="row">
+            <div class="col-md-12">
+                <center>This Page Says</center>
+                <p>Masukkan Angka</p>
+                <input type="number" class="form-control nilai" id="nilai" placeholder="Masukkan Nilai">
+                <button type="button" class="btn btn-primary" onclick="click(this.id)" id="btnOk">Ok</button>
+                <button type="button" class="btn btn-warning" onclick="click(this.id)" id="btnCancel">Cancel</button>
+            </div>
+            <div class="col-md-12">
+                <div id="hasil">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html> -->

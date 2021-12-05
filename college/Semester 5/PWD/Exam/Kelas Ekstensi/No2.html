@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>NO 2</title>
+</head>
+<body>
+    <table border="0" align="center">
+        <form>
+            <tr>
+                <th colspan="3">
+                    <img src="../logo.png" width="20%"><br><br>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="3">
+                    <pre align="center" style="background-color: #9A9A9A">Input Nilai Mahasiswa</pre>
+                </th>
+            </tr>
+            <tr>
+                <td>NPM</td>
+                <td>: <input type="text" name="npm" size="10"/></td>
+            </tr>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td>: <input type="text" name="nama" size="30"/></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>:
+                    <input type="radio" name="jenisKelamin" value="Pria"/>
+                    <b>Pria</b>
+                    <input type="radio" name="jenisKelamin" value="Wanita"/>
+                    <b>Wanita</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Mata Kuliah</td>
+                <td>:
+                    <select name="matkul">
+                        <option value="Pemrograman Web">Pemrograman Web</option>
+                        <option value="Pemrograman Mobile">Pemrograman Mobile</option>
+                        <option value="Pemrograman Desktop">Pemrograman Desktop</option>
+                        <option value="Pemrograman Game">Pemrograman Game</option>
+                    </select>
+                    <b>Please Select an item</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Keterangan</td>
+                <td>: <textarea name="keterangan" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <th colspan="3">
+                    <pre>Nilai</pre>
+                </th>
+            </tr>
+            <tr>
+                <td>Nilai Tugas</td>
+                <td>: <input type="text" name="nilaiTugas" size="10"/>
+                    *diisi dengan angka(misal : 4.56)
+                </td>
+            </tr>
+            <tr>
+                <td>Nilai UTS</td>
+                <td>: <input type="text" name="nilaiUTS" size="10"/>
+                    *diisi dengan angka(misal : 4.56)
+                </td>
+            </tr>
+            <tr>
+                <td>Nilai UAS</td>
+                <td>: <input type="text" name="nilaiUAS" size="10"/>
+                    *diisi dengan angka(misal : 4.56)
+                </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td>
+                    <input type="submit" name="submit" value="Submit"/>
+                    <input type="reset" name="reset" value="Reset"/>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="3"><pre> </pre></th>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
