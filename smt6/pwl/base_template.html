@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: white;
+    }
+    .box{
+        height: 600px;
+        background-color: #212332;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .box-header{
+        background-color: #2A2D3E;
+        border-radius: 10px;
+        padding: 20px;
+        height: 50px;
+    }
+    .box-body{
+        margin-top: 3px;
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        padding: 0.1px;
+    }
+
+    .container > div {
+        text-align: center;
+        margin: 5px;
+        padding: 20px 0;
+        font-size: 30px;
+        background-color: #2A2D3E;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div id="outside" class="box">
+        <div id="top" class="box-header">
+            <div>
+
+            </div>
+        </div>
+        <div id="content" class="box-body container" style="height:470px">
+            <div style="width: 20%">1</div>
+            <div style="width: 80%">2</div>
+        </div>
+    </div>
+</body>
+</html>
