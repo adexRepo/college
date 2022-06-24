@@ -33,7 +33,7 @@
                     <?php foreach ($array as $value) : ?>
                         <li>
                         <?php
-                            echo "<a href=0_index.php?file=",urlencode($value),">$value</a>";
+                            echo "<a href=201943501163_index.php?file=",urlencode($value),">$value</a>";
                         ?>
                         </li>
                     <?php  endforeach; ?>
@@ -47,7 +47,7 @@
                         if( $file == "" ){
                             $file = $defaultFile;
                         }
-                        include "filePhp/$file";
+                        include "subFile/$file";
                     ?>
                 </div>
             </th>
