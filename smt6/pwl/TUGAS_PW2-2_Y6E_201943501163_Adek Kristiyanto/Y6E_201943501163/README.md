@@ -1,11 +1,9 @@
 Note
-RUNNING DI SATU FILE SAJA CUKUP: 
+RUNNING DI SATU FILE SAJA : 
 
-0_index.php
+main.php
 
 Nama    : Adek Kristiyanto
 NPM     : 201943501163
 KELAS   : Y6E
-GitHub  : @adexRepo
-
-kalo error bisa clone di github saya
+GitHub  : https://github.com/adexRepo/college
