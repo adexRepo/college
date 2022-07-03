@@ -14,7 +14,11 @@
 
 <body>
     <?php
-    require_once './constants/constant.php';
+        if(isset($_POST["submit"])){
+            include("./postedData.php");
+            $formBiodata = getDataPost($_GET['file'], $_POST);
+        }
+        include_once './constants/constant.php';
     ?>
     <main class="d-flex">
         <table width="100%" height="100%">
@@ -27,14 +31,17 @@
                         <span class="fs-5 fw-semibold">List Menu</span>
                     </a>
                     <ul>
-                        <li class="mb-0">
-                            <a href="main.php?file=0_Biodata.php" class="d-flex pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                                <svg class="bi pe-none me-2" width="16" height="16">
-                                    <use xlink:href="#people-circle" />
-                                </svg>
-                                <span class="fs-6 fw-semibold">Biodata</span>
-                            </a>
-                        </li>
+                        <?php foreach ($menu as $nameMap => $itemMap) :?>
+                            <li class="mb-0">
+                                <a <?php echo "href=index.php?file=$itemMap&menu=Y"?>
+                                class="d-flex pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                                    <svg class="bi pe-none me-2" width="16" height="16">
+                                        <use xlink:href="#people-circle" />
+                                    </svg>
+                                    <?php echo "<span class=\"fs-6 fw-semibold\"> $nameMap</span>"?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                         <li>
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#grid" />
@@ -42,25 +49,25 @@
                             <button class="btn btn-toggle d-inline-flex rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
                                 Page
                             </button>
-                            <div class="collapse show" id="home-collapse">
+                            <div class="collapse" id="home-collapse">
                                 <ul id="nav" class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <?php foreach ($menu as $index => $value) : ?>
+                                    <?php foreach ($page as $index => $value) : ?>
                                         <li class="mb-0"
                                         <?php
-                                                                    $defaultFile = "1_HelloWorld.php";
-                                                                    $file = $_GET['file'] ?? $defaultFile;
+                                            $defaultFile = "1_HelloWorld.php";
+                                            $file = $_GET['file'] ?? $defaultFile;
                                         ?>
                                         >
                                             <a class="link-dark d-inline-flex text-decoration-none rounded border-bottom" <?php
-                                                                                                            echo "href=main.php?file=", urlencode($value);
+                                                                                                            echo "href=index.php?file=", urlencode($value);
                                                                                                             ?>>
                                                 <strong class="mb-1">
                                                     <?php
-                                                    $title = "Hello World";
-                                                    if($title != $ItemMenu[$index]){
-                                                        $title = $ItemMenu[$index];
-                                                    }
-                                                    echo $index+1 . ". " . $ItemMenu[$index];
+                                                        $title = "Hello World";
+                                                        if($title != $ItemMenu[$index]){
+                                                            $title = $ItemMenu[$index];
+                                                        }
+                                                        echo $index+1 . ". " . $ItemMenu[$index];
                                                     ?>
                                                 </strong>
                                             </a>
@@ -75,7 +82,7 @@
                     <div class="container">
                         <span class="fs-4">
                             <?php
-                            echo HEADER
+                                echo HEADER
                             ?>
                         </span>
                     </div>
@@ -85,9 +92,17 @@
                 <th>
                     <div>
                         <?php
-                        $defaultFile = "0_Biodata.php";
+                        $defaultFile = "biodata.php";
                         $file = $_GET['file'] ?? $defaultFile;
-                        include "filePhp/$file";
+                            if($file == $defaultFile){
+                                include "screens/$file";
+                            }else{
+                                if(isset($_GET['menu'])){
+                                    include "screens/$file";
+                                }else{
+                                    include "screens/filePhp/$file";
+                                }
+                            }
                         ?>
                     </div>
                 </th>

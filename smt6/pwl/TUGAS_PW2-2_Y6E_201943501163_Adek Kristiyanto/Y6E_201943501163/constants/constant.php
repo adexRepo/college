@@ -5,7 +5,7 @@ define("HEADER", "ADEK KRISTIYANTO || 201943501163");
 // NOTE FOOTER
 define("FOOTER", "UNIVERSITAS INDRAPRASTA PGRI");
 
-// NOTE SIDE MENU
+// NOTE PAGE
 define ("NAMEFILE", serialize (array (
     "1_HelloWorld.php"                  ,"2_TipeDataNumber.php"              ,
     "3_TipeDataBoolean.php"             ,"4_TipeDataString.php"              ,
@@ -33,10 +33,10 @@ define ("NAMEFILE", serialize (array (
     "42_VariabelScope.php"              ,"43_Reference.php"
 )));
 
-$menu = unserialize (NAMEFILE);
+$page = unserialize (NAMEFILE);
 
 // NOTE ITEM MENU
-function getTitle($arr) {
+function getTitlePage($arr) {
     foreach ($arr as $index => $val) {
         $str = $val;
         if($index < 9){
@@ -52,7 +52,17 @@ function getTitle($arr) {
     return $arr;
 }
 
-$ItemMenu = getTitle($menu);
+$ItemMenu = getTitlePage($page);
+
+// NOTE ROUTER
+define ("SCREEN", serialize (array (
+    "Form" => "form.php"         ,
+    "Biodata" => "biodata.php"      ,
+    "Konversi" => "konversi.php"     ,
+    "GenerateTable" => "generateTable.php",
+)));
+
+$menu = unserialize (SCREEN);
 
 // NOTE BIODATA
 define ("BIODATA", serialize (array (
@@ -89,20 +99,25 @@ $bio = unserialize (BIODATA);
 
 // NOTE FOTO
 define ("FOTO", serialize (array (
-    "path" => "../resources/adek.jpeg",
+    "path" => "../../Y6E_201943501163/resources/adek.jpeg",
     "caption" => "Adek Kristiyanto"
 )));
 
 $foto = unserialize (FOTO);
 
+
+// NOTE PATH
+$indexPath = "./index.php?file=form.php&menu=Y";
+
+// NOTE SVG
 echo <<<BATAS
     <svg style="display: none;">
-    <symbol id="people-circle" viewBox="0 0 16 16">
-        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-    </symbol>
-    <symbol id="grid" viewBox="0 0 16 16">
-        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-    </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </symbol>
     </svg>
 BATAS;
