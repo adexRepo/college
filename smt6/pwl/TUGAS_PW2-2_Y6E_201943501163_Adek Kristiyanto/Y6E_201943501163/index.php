@@ -16,7 +16,7 @@
     <?php
         if(isset($_POST["submit"])){
             include("./postedData.php");
-            $formBiodata = getDataPost($_GET['file'], $_POST);
+            getDataPost($_GET['file'], $_POST);
         }
         include_once './constants/constant.php';
     ?>

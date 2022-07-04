@@ -99,7 +99,8 @@ $bio = unserialize (BIODATA);
 
 // NOTE FOTO
 define ("FOTO", serialize (array (
-    "path" => "../../Y6E_201943501163/resources/adek.jpeg",
+    // "path" => "../resources/photo.jpg", // Ghozali
+    "path" => "../resources/adek.jpeg",
     "caption" => "Adek Kristiyanto"
 )));
 
@@ -107,7 +108,9 @@ $foto = unserialize (FOTO);
 
 
 // NOTE PATH
-$indexPath = "./index.php?file=form.php&menu=Y";
+$indexPathForm = "./index.php?file=form.php&menu=Y";
+$indexPathKonversi = "./index.php?file=konversi.php&menu=Y";
+$indexPathGenerate = "./index.php?file=generateTable.php&menu=Y";
 
 // NOTE SVG
 echo <<<BATAS
