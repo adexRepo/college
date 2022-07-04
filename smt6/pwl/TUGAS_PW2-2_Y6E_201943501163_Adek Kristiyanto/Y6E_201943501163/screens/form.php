@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/css/style.css">
-
     <title>Form</title>
 </head>
     <style>
@@ -28,7 +27,7 @@
     <h1 style="text-align:center;">FORM BIODATA</h1>
     <div class="flex-container">
         <div class="form-div" style="background-color:whitesmoke">
-        <?php echo "<form action=\"$indexPath\"  method=\"POST\">"?>
+        <?php echo "<form action=\"$indexPathForm\"  method=\"POST\">"?>
                 <table>
                     <tr>
                         <td>Nama</td>
